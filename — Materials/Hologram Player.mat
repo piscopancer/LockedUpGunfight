@@ -104,7 +104,7 @@ Material:
     - _Float2: 20.35
     - _Float3: 1
     - _FresnelAlphaFeature: 1
-    - _FresnelAlphaPower: 3.65
+    - _FresnelAlphaPower: 3
     - _FresnelAlphaScale: 1
     - _FresnelColorFeature: 1
     - _FresnelFeature: 1
@@ -129,13 +129,13 @@ Material:
     - _GrainPower: 4.4
     - _Hide: -1
     - _Keyword0: 0
-    - _Line1Alpha: 0.15
+    - _Line1Alpha: 0.1
     - _Line1Feature: 1
-    - _Line1Frequency: 100
-    - _Line1Hardness: 1.45
+    - _Line1Frequency: 30
+    - _Line1Hardness: 0.5
     - _Line1InvertedThickness: 0
-    - _Line1Speed: -3.57
-    - _Line2Alpha: 0.1
+    - _Line1Speed: -2
+    - _Line2Alpha: 0.5
     - _Line2Feature: 1
     - _Line2Frequency: 1
     - _Line2Hardness: 2
