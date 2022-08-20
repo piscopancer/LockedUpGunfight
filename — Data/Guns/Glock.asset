@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94338b1a90b1aa549a820ff5cc697d04, type: 3}
+  m_Name: Glock
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: {fileID: 11400000, guid: 42637f0a66ced934eb0fd0d0d31470f2,
+    type: 2}
+  ListGunLevels:
+  - <Damage>k__BackingField: 50
+    <RPM>k__BackingField: 200
+    <Accuracy>k__BackingField: 80
+    <KillsToNextLevel>k__BackingField: 50
+  - <Damage>k__BackingField: 55
+    <RPM>k__BackingField: 200
+    <Accuracy>k__BackingField: 82
+    <KillsToNextLevel>k__BackingField: 120
+  - <Damage>k__BackingField: 60
+    <RPM>k__BackingField: 200
+    <Accuracy>k__BackingField: 84
+    <KillsToNextLevel>k__BackingField: 180
+  - <Damage>k__BackingField: 65
+    <RPM>k__BackingField: 200
+    <Accuracy>k__BackingField: 87
+    <KillsToNextLevel>k__BackingField: 250
+  - <Damage>k__BackingField: 70
+    <RPM>k__BackingField: 200
+    <Accuracy>k__BackingField: 90
+    <KillsToNextLevel>k__BackingField: 0
