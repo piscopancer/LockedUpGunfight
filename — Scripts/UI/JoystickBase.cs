@@ -6,33 +6,39 @@ using UnityEngine.EventSystems;
 using System;
 
 [DeclareBoxGroup("Size", Title = "Size")]
-public class JoystickBase : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public abstract class JoystickBase : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
+    enum Mode { Floating, Fixed }
+
+    [SerializeField] Mode mode = Mode.Fixed;
     [SerializeField, ReadOnly] Vector2 value;
     [SerializeField, ReadOnly] Vector2 bodyPos;
     [SerializeField, Required] RectTransform zone, body, dot;
-    [Group("Size"), SerializeField] int bodySize = 300, dotSize = 80;
+    [Group("Size"), SerializeField] int bodySize = 200, dotSize = 80;
 
     public static Action<Vector2> OnJoystickDown, OnJoystickDragged, OnJoystickUp;
 
     void Awake()
     {
-        body.gameObject.SetActive(false);
-        dot.gameObject.SetActive(false);
+        if(mode == Mode.Floating)
+        {
+            body.gameObject.SetActive(false);
+            dot.gameObject.SetActive(false);
+        }
     }
 
-    public void OnPointerDown(PointerEventData pointerEventData)
+    public virtual void OnPointerDown(PointerEventData pointerEventData)
     {
         bodyPos = pointerEventData.pressPosition;
         body.gameObject.SetActive(true);
         body.anchoredPosition = pointerEventData.pressPosition;
         dot.gameObject.SetActive(true);
-        dot.anchoredPosition = Vector2.zero;
-        value = Vector2.zero;
-        OnJoystickDown.Invoke(Vector2.zero);
+        dot.anchoredPosition = bodyPos;
+        value = bodyPos;
+        OnJoystickDown.Invoke(value);
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public virtual void OnDrag(PointerEventData eventData)
     {
         Vector2 offset = Vector2.ClampMagnitude(eventData.position - bodyPos, bodySize / 2);
         dot.anchoredPosition = offset;
@@ -40,7 +46,7 @@ public class JoystickBase : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         OnJoystickDragged.Invoke(value);
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public virtual void OnPointerUp(PointerEventData eventData)
     {
         body.gameObject.SetActive(false);
         dot.gameObject.SetActive(false);
