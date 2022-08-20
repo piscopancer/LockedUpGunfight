@@ -153,10 +153,10 @@ Transform:
   m_Children:
   - {fileID: 605478724}
   - {fileID: 2092176635}
+  - {fileID: 1352513323}
   - {fileID: 1552346538}
   - {fileID: 1982794014}
   - {fileID: 357418927}
-  - {fileID: 1551806361}
   - {fileID: 316571799}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -534,6 +534,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0497e4e4c749c4a99318af5870f6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunDefault:
+    <IsBought>k__BackingField: 0
+    <IsEquipped>k__BackingField: 0
+    <Profile>k__BackingField: {fileID: 0}
+  listGunsInfo:
+  - <IsBought>k__BackingField: 0
+    <IsEquipped>k__BackingField: 0
+    <Profile>k__BackingField: {fileID: 0}
 --- !u!1 &605478723
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +827,7 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
---- !u!1 &1551806360
+--- !u!1 &1352513322
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -827,23 +835,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1551806361}
-  - component: {fileID: 1551806362}
+  - component: {fileID: 1352513323}
+  - component: {fileID: 1352513324}
   m_Layer: 0
-  m_Name: Locations
+  m_Name: Language
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1551806361
+--- !u!4 &1352513323
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551806360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1352513322}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -851,18 +859,19 @@ Transform:
   m_Father: {fileID: 78114744}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1551806362
+--- !u!114 &1352513324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551806360}
+  m_GameObject: {fileID: 1352513322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba6fb9f806902e4c84f32691f2a4baf, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f620c2d31db9414593b20ed817be404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  languageCurrent: 0
 --- !u!1 &1552346537
 GameObject:
   m_ObjectHideFlags: 0

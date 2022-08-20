@@ -25,3 +25,5 @@ public class GunInfo
     [field: SerializeField, ReadOnly] public bool IsEquipped { get; private set; } = false;
     [field: SerializeField, Required] public GunProfileBase Profile { get; private set; }
 }
+
+
