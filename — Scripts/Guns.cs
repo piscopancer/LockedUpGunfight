@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TriInspector;
+using System;
 
 public class Guns : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GunInfo gunDefault;
+    [SerializeField] List<GunInfo> listGunsInfo;
+
+    public static Action<GunInfo> OnGunEquipped;
+
+    void Awake()
     {
-        
+            
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+}
+
+[Serializable]
+public class GunInfo
+{
+    [field: SerializeField] public bool IsBought { get; private set; } = false;
+    [field: SerializeField, ReadOnly] public bool IsEquipped { get; private set; } = false;
+    [field: SerializeField, Required] public GunProfileBase Profile { get; private set; }
 }
