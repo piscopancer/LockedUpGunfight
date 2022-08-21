@@ -12,9 +12,8 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ShaderKeywords: _COLORGLITCHFEATURE_ON _DISSOLVEFEATURE_ON _FRESNELFEATURE_ON
-    _GRAINFEATURE_ON _LINE1FEATURE_ON _LINE2FEATURE_ON _LINEBOTHFEATURE_ON _LINEGLITCHFEATURE_ON
-    _POSITIONFEATURE_Y _POSITIONSPACEFEATURE_WORLD _RANDOMGLITCHFEATURE_ON _SOFTINTERSECTION1FEATURE_OFF
-    _SOFTINTERSECTION2FEATURE_OFF
+    _GRAINFEATURE_ON _LINE1FEATURE_ON _LINEGLITCHFEATURE_ON _POSITIONFEATURE_Y _POSITIONSPACEFEATURE_WORLD
+    _RANDOMGLITCHFEATURE_ON _SOFTINTERSECTION1FEATURE_OFF _SOFTINTERSECTION2FEATURE_OFF
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -131,20 +130,20 @@ Material:
     - _Keyword0: 0
     - _Line1Alpha: 0.1
     - _Line1Feature: 1
-    - _Line1Frequency: 30
-    - _Line1Hardness: 0.5
+    - _Line1Frequency: 5
+    - _Line1Hardness: 0.3
     - _Line1InvertedThickness: 0
     - _Line1Speed: -2
     - _Line2Alpha: 0.5
-    - _Line2Feature: 1
-    - _Line2Frequency: 1
+    - _Line2Feature: 0
+    - _Line2Frequency: 3.36
     - _Line2Hardness: 2
     - _Line2InvertedThickness: 0.255
     - _Line2Speed: -1
     - _LineAlpha: 1
     - _LineAlpha1: 0.15
     - _LineAlpha2: 0.1
-    - _LineBothFeature: 1
+    - _LineBothFeature: 0
     - _LineFrequency: 6
     - _LineFrequency1: 100
     - _LineFrequency2: 1
@@ -177,7 +176,7 @@ Material:
     - _PositionFeature: 1
     - _PositionFeature1: 0
     - _PositionSpaceFeature: 0
-    - _RandomGlitchAmount: 0.122
+    - _RandomGlitchAmount: 0.022
     - _RandomGlitchConstant: 0
     - _RandomGlitchFeature: 1
     - _RandomGlitchTiling: 2.83
