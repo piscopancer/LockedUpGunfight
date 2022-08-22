@@ -15,28 +15,38 @@ public class SaveSystem : MonoBehaviour
 
     void Awake()
     {
-            
+        PanelMenu.OnQuitClicked += delegate
+        {
+            Save();
+            Application.Quit();
+        }; 
     }
 
     void Start()
     {
         OnAppStarted?.Invoke();
         Load();
-        fullPath = Application.persistentDataPath + SAVE_FILE_NAME + ".json";
+        fullPath = $"{Application.persistentDataPath}/{SAVE_FILE_NAME}.json";
     }
 
     public class SaveData
     {
         public Languages LanguageCurrent;
+        public bool SoundOn, MusicOn, VibrationOn;
+        public int Dollars;
     }
 
     void Save()
     {
         SaveData save = new SaveData
         {
-            LanguageCurrent = Language.LanguageCurrent
+            LanguageCurrent = Language.LanguageCurrent,
+            SoundOn = Audio.SoundOn,
+            MusicOn = Audio.MusicOn,
+            VibrationOn = Audio.VibraionOn,
+            Dollars = Balance.Dollars
         };
-        string saveText = JsonUtility.ToJson(save);
+        string saveText = JsonUtility.ToJson(save, true);
         using StreamWriter sw = new StreamWriter(fullPath);
         sw.Write(saveText);
         sw.Close();
