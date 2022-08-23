@@ -27,7 +27,7 @@ public class PanelBase : MonoBehaviour
         {
             foreach (var tween in ListTweens)
             {
-                tween?.Kill();
+                tween.Kill();
             }
         }
         Destroy(gameObject);

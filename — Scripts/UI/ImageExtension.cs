@@ -25,14 +25,14 @@ public class ImageExtension : MonoBehaviour
         }
         if (ifSpin)
         {
-            image.rectTransform.DOBlendableLocalRotateBy(Vector3.forward * degreesPerSecond, 1)
+            tweenSpin = image.rectTransform.DOBlendableLocalRotateBy(Vector3.forward * degreesPerSecond, 1)
                 .SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear);
         }
     }
 
     void OnDestroy()
     {
-        tweenBlink?.Kill();
-        tweenSpin?.Kill();
+        tweenBlink.Kill();
+        tweenSpin.Kill();
     }
 }

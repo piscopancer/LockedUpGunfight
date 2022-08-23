@@ -14,16 +14,20 @@ public class ButtonExtension : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     [SerializeField] bool ifOutline = false;
     [SerializeField, Required, OnValueChanged(nameof(ClickedImageTransparent)), ShowIf(nameof(ifOutline))] Image clickedImage;
     [SerializeField] bool ifChangeSize = false;
-    Tween tweenTransparency;
+    Tween tweenTransparency, tweenChangeSize;
 
-    void Start()
+    void Awake()
     {
-        ClickedImageTransparent();
+        if (ifOutline)
+        {
+            ClickedImageTransparent();
+        }
     }
 
     void OnDestroy()
     {
-        tweenTransparency?.Kill();
+        tweenTransparency.Kill();
+        tweenChangeSize.Kill();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -34,7 +38,7 @@ public class ButtonExtension : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         }
         if (ifChangeSize)
         {
-            GetComponent<RectTransform>().DOScale(SIZE_CLICKED, TIME_ANIM);
+            tweenChangeSize = GetComponent<RectTransform>().DOScale(SIZE_CLICKED, TIME_ANIM);
         }
     }
 
