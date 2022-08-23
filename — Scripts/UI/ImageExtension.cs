@@ -8,10 +8,13 @@ using TriInspector;
 [RequireComponent(typeof(Image))]
 public class ImageExtension : MonoBehaviour
 {
-    [SerializeField] bool ifBlink = true;
-    [SerializeField, Min(0), EnableIf(nameof(ifBlink))] float timeBlinkOneWay = 0.5f;
-    [SerializeField, Range(0, 1), EnableIf(nameof(ifBlink))] float blinkMin = 0, blinkMax = 1;
+    [SerializeField] bool ifBlink = false;
+    [SerializeField, Min(0), ShowIf(nameof(ifBlink))] float timeBlinkOneWay = 0.5f;
+    [SerializeField, Range(0, 1), ShowIf(nameof(ifBlink))] float blinkMin = 0, blinkMax = 1;
     Tween tweenBlink;
+    [SerializeField] bool ifSpin = false;
+    [SerializeField, ShowIf(nameof(ifSpin))] int degreesPerSecond;
+    Tween tweenSpin;
 
     void Awake()
     {
@@ -20,10 +23,16 @@ public class ImageExtension : MonoBehaviour
         {
             tweenBlink = image.DOFade(blinkMax, timeBlinkOneWay).From(blinkMin).SetLoops(-1, LoopType.Yoyo);
         }
+        if (ifSpin)
+        {
+            image.rectTransform.DOBlendableLocalRotateBy(Vector3.forward * degreesPerSecond, 1)
+                .SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear);
+        }
     }
 
     void OnDestroy()
     {
         tweenBlink?.Kill();
+        tweenSpin?.Kill();
     }
 }

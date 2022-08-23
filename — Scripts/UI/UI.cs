@@ -12,13 +12,15 @@ public class UI : MonoBehaviour
 
     void Awake()
     {
-        PanelBase.OnOpened += delegate (PanelBase panel)
+        OpenPanel(panelMenu);
+
+        PanelBase.OnOpened += delegate (PanelBase thisPanel)
         {
             
         };
-        PanelBase.OnClosed += delegate (PanelBase panel)
+        PanelBase.OnClosed += delegate (PanelBase thisPanel)
         {
-            if (panel is PanelSettings)
+            if (thisPanel is PanelSettings)
             {
                 OpenPanel(panelMenu);
             };

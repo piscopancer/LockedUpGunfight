@@ -9,8 +9,11 @@ using DG.Tweening;
 [RequireComponent(typeof(Button))]
 public class ButtonExtension : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    const float TIME_ANIM = 0.15f; 
-    [SerializeField, Required, OnValueChanged(nameof(ClickedImageTransparent))] Image clickedImage;
+    const float TIME_ANIM = 0.15f;
+    const float SIZE_CLICKED = 0.9f;
+    [SerializeField] bool ifOutline = false;
+    [SerializeField, Required, OnValueChanged(nameof(ClickedImageTransparent)), ShowIf(nameof(ifOutline))] Image clickedImage;
+    [SerializeField] bool ifChangeSize = false;
     Tween tweenTransparency;
 
     void Start()
@@ -25,12 +28,26 @@ public class ButtonExtension : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        tweenTransparency = clickedImage.DOFade(1, TIME_ANIM).From(0);
+        if (ifOutline)
+        {
+            tweenTransparency = clickedImage.DOFade(1, TIME_ANIM).From(0);
+        }
+        if (ifChangeSize)
+        {
+            GetComponent<RectTransform>().DOScale(SIZE_CLICKED, TIME_ANIM);
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        tweenTransparency = clickedImage.DOFade(0, TIME_ANIM).From(1);
+        if (ifOutline)
+        {
+            tweenTransparency = clickedImage.DOFade(0, TIME_ANIM).From(1);
+        }
+        if (ifChangeSize)
+        {
+            GetComponent<RectTransform>().DOScale(1, TIME_ANIM);
+        }
     }
 
     void ClickedImageTransparent()

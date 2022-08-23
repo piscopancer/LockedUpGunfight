@@ -17,8 +17,8 @@ public class PanelMenu : PanelBase
 
         buttonSettings.onClick.AddListener(delegate
         {
-            OnSettingsClicked?.Invoke();
             Close();
+            OnSettingsClicked?.Invoke();
         });
         buttonQuit.onClick.AddListener(delegate 
         {

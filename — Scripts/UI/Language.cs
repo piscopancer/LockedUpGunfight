@@ -27,7 +27,11 @@ public class Language : MonoBehaviour
         SaveSystem.OnSaveLoaded += delegate (SaveSystem.SaveData save)
         {
             languageCurrent = save.LanguageCurrent;
-        }; 
+        };
+        PanelSettings.OnLanguageClicked += delegate (Languages newLang)
+        {
+            LanguageCurrent = newLang;
+        };
     }
 }
 

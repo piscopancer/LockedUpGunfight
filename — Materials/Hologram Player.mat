@@ -11,9 +11,9 @@ Material:
   m_Shader: {fileID: 4800000, guid: e99f8b80b1693284587af0c131f61f3d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ShaderKeywords: _COLORGLITCHFEATURE_ON _DISSOLVEFEATURE_ON _FRESNELFEATURE_ON
-    _GRAINFEATURE_ON _LINE1FEATURE_ON _LINEGLITCHFEATURE_ON _POSITIONFEATURE_Y _POSITIONSPACEFEATURE_WORLD
-    _RANDOMGLITCHFEATURE_ON _SOFTINTERSECTION1FEATURE_OFF _SOFTINTERSECTION2FEATURE_OFF
+  m_ShaderKeywords: _COLORGLITCHFEATURE_ON _FRESNELFEATURE_ON _LINE1FEATURE_ON _LINEGLITCHFEATURE_ON
+    _POSITIONFEATURE_Y _POSITIONSPACEFEATURE_WORLD _RANDOMGLITCHFEATURE_ON _SOFTINTERSECTION1FEATURE_OFF
+    _SOFTINTERSECTION2FEATURE_OFF
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -95,7 +95,7 @@ Material:
     - _DebugGlitch: 0
     - _DisplacementAmount: 0
     - _DisplacementFeature: 0
-    - _DissolveFeature: 1
+    - _DissolveFeature: 0
     - _DissolveHide: -1
     - _EdgeLength: 15
     - _Float0: -21.05
@@ -124,7 +124,7 @@ Material:
     - _GlitchRemapMinNew: -1
     - _GlitchRemapMinOld: 0
     - _GrainAffect: 1
-    - _GrainFeature: 1
+    - _GrainFeature: 0
     - _GrainPower: 4.4
     - _Hide: -1
     - _Keyword0: 0
@@ -203,7 +203,7 @@ Material:
     - _VoxelizationAffect: 1
     - _VoxelizationAffect1: 1
     - _VoxelizationFeature: 0
-    - _ZWrite: 1
+    - _ZWrite: 0
     - __dirty: 1
     m_Colors:
     - _Color: {r: 0.620945, g: 1.420074, b: 3.953349, a: 0.05098039}
