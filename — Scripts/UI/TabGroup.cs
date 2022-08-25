@@ -8,7 +8,7 @@ using TriInspector;
 public class TabGroup
 {
     [SerializeField] List<TabGroupButton> listButtons;
-    [SerializeField, ReadOnly] TabGroupButton buttonSelected = null;
+    [field: SerializeField, ReadOnly] public TabGroupButton ButtonSelected { get; private set; } = null;
     [SerializeField, Required, InlineEditor] ColorCustom colorSelectedFront, colorSelectedBack, 
         colorNotSelectedFront, colorNotSelectedBack;
 
@@ -19,6 +19,7 @@ public class TabGroup
             if (button == buttonClicked)
             {
                 button.SetColor(colorSelectedBack, colorSelectedFront);
+                ButtonSelected = buttonClicked;
             }
             if (button != buttonClicked)
             {
