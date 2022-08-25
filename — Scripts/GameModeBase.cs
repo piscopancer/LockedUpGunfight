@@ -6,5 +6,5 @@ using System;
 
 public abstract class GameModeBase : MonoBehaviour
 {
-    public static Action<GameModeBase> OnGameModeSelected;
+    public static Action<GameModeBase> OnGameModeSelected, OnGameStarted;
 }

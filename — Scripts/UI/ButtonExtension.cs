@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TriInspector;
 using DG.Tweening;
+using TMPro;
 
 [RequireComponent(typeof(Button))]
 public class ButtonExtension : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
@@ -13,8 +14,9 @@ public class ButtonExtension : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     const float SIZE_CLICKED = 0.9f;
     [SerializeField] bool ifOutline = false;
     [SerializeField, Required, OnValueChanged(nameof(ClickedImageTransparent)), ShowIf(nameof(ifOutline))] Image clickedImage;
+    Tween tweenTransparency;
     [SerializeField] bool ifChangeSize = false;
-    Tween tweenTransparency, tweenChangeSize;
+    Tween tweenChangeSize;
 
     void Awake()
     {

@@ -8,11 +8,12 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     [SerializeField, Required] RectTransform holderPanels;
-    [SerializeField, Required, AssetsOnly] PanelBase panelMenu, panelSettings;
+    [SerializeField, Required, AssetsOnly] PanelBase panelMenu, panelMainBottom, panelSettings;
 
     void Awake()
     {
         OpenPanel(panelMenu);
+        OpenPanel(panelMainBottom);
 
         PanelBase.OnOpened += delegate (PanelBase thisPanel)
         {
