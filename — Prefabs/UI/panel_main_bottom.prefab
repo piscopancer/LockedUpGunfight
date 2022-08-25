@@ -160,7 +160,6 @@ GameObject:
   m_Component:
   - component: {fileID: 202734733253586397}
   - component: {fileID: 5571030188317097254}
-  - component: {fileID: 1143914227327427470}
   - component: {fileID: 6855836176419371618}
   m_Layer: 5
   m_Name: button_menu
@@ -236,21 +235,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1143914227327427470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844059574344908306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9da4da38d8699c48ae218cb769046c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ifOutline: 0
-  clickedImage: {fileID: 0}
-  ifChangeSize: 1
 --- !u!114 &6855836176419371618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b38a246836cdf25409104cf2b51e5308, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -354,7 +338,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5466361662958546186}
   - component: {fileID: 1610355647486281049}
-  - component: {fileID: 4816029451375575400}
   - component: {fileID: 2521533294077286970}
   m_Layer: 5
   m_Name: button_guns
@@ -430,21 +413,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4816029451375575400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2412581384385033690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9da4da38d8699c48ae218cb769046c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ifOutline: 0
-  clickedImage: {fileID: 0}
-  ifChangeSize: 1
 --- !u!114 &2521533294077286970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +440,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3799398905142236097}
   - component: {fileID: 1122956984993596462}
-  - component: {fileID: 8728198030919963107}
   - component: {fileID: 7879060670686151092}
   m_Layer: 5
   m_Name: button_character
@@ -548,21 +515,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8728198030919963107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2519516926383171311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9da4da38d8699c48ae218cb769046c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ifOutline: 0
-  clickedImage: {fileID: 0}
-  ifChangeSize: 1
 --- !u!114 &7879060670686151092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,7 +637,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b38a246836cdf25409104cf2b51e5308, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -753,7 +705,7 @@ MonoBehaviour:
     - {fileID: 2521533294077286970}
     - {fileID: 6855836176419371618}
     - {fileID: 7879060670686151092}
-    buttonSelected: {fileID: 0}
+    <ButtonSelected>k__BackingField: {fileID: 0}
     colorSelectedFront: {fileID: 11400000, guid: 9e343612c6afc5740b2a39759fb8e472,
       type: 2}
     colorSelectedBack: {fileID: 11400000, guid: b197db18308eb7947910847ee2c2adfe,
@@ -956,7 +908,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b38a246836cdf25409104cf2b51e5308, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
