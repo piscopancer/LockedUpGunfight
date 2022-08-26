@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TriInspector;
 using System;
 
-public class PanelMainBottom : PanelBase
+public class PanelDockBottom : PanelBase
 {
     [SerializeField, Required] ColorCustom colorBlue, colorWhite;
     [SerializeField] TabGroup tabGroupMainButtons;
@@ -32,7 +32,10 @@ public class PanelMainBottom : PanelBase
             OnCharacterClicked?.Invoke();
             tabGroupMainButtons.DisplayButtonSelected(buttonCharacter.GetComponent<TabGroupButton>());
         });
-
-        tabGroupMainButtons.DisplayButtonSelected(buttonGuns.GetComponent<TabGroupButton>());
+        SaveSystem.OnAppStarted += delegate
+        {
+            tabGroupMainButtons.DisplayButtonSelected(buttonMenu.GetComponent<TabGroupButton>());
+        };
+        
     }
 }
