@@ -4,6 +4,12 @@ using UnityEngine;
 using System;
 using System.IO;
 
+interface ITemporarySubscriber
+{
+    void Subscribe();
+    void Unsubscribe();
+}
+
 public class SaveSystem : MonoBehaviour
 {
     const string SAVE_FILE_NAME = "Save";
@@ -34,6 +40,8 @@ public class SaveSystem : MonoBehaviour
         public Languages LanguageCurrent;
         public bool SoundOn, MusicOn, VibrationOn;
         public int Dollars;
+        public List<GunStatus> ListGuns;
+        public GunStatus GunEquipped;
     }
 
     void Save()
@@ -44,7 +52,9 @@ public class SaveSystem : MonoBehaviour
             SoundOn = Audio.SoundOn,
             MusicOn = Audio.MusicOn,
             VibrationOn = Audio.VibraionOn,
-            Dollars = Balance.Dollars
+            Dollars = Balance.Dollars,
+            ListGuns = Guns.ListGuns,
+            GunEquipped = Guns.GunEquipped
         };
         string saveText = JsonUtility.ToJson(save, true);
         using StreamWriter sw = new StreamWriter(fullPath);

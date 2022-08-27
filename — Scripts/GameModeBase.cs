@@ -7,4 +7,9 @@ using System;
 public abstract class GameModeBase : MonoBehaviour
 {
     public static Action<GameModeBase> OnGameModeSelected, OnGameStarted;
+
+    protected virtual void StartGame()
+    {
+        OnGameStarted?.Invoke(this);
+    }
 }

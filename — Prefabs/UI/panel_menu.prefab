@@ -933,6 +933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonSettings: {fileID: 246891434371676320}
   buttonQuit: {fileID: 2630699102206740064}
+  buttonLevels: {fileID: 6710561701320897056}
+  buttonInfinite: {fileID: 4308348190774882813}
 --- !u!225 &1806886298630165219
 CanvasGroup:
   m_ObjectHideFlags: 0

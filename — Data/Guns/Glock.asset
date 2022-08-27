@@ -9,29 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94338b1a90b1aa549a820ff5cc697d04, type: 3}
+  m_Script: {fileID: 11500000, guid: e93aa048d6d34bb4396b5df983e6638e, type: 3}
   m_Name: Glock
   m_EditorClassIdentifier: 
+  <GunType>k__BackingField: 0
   <Name>k__BackingField: {fileID: 11400000, guid: 42637f0a66ced934eb0fd0d0d31470f2,
     type: 2}
-  ListGunLevels:
-  - <Damage>k__BackingField: 50
-    <RPM>k__BackingField: 200
-    <Accuracy>k__BackingField: 80
-    <KillsToNextLevel>k__BackingField: 50
-  - <Damage>k__BackingField: 55
-    <RPM>k__BackingField: 200
-    <Accuracy>k__BackingField: 82
-    <KillsToNextLevel>k__BackingField: 120
-  - <Damage>k__BackingField: 60
-    <RPM>k__BackingField: 200
-    <Accuracy>k__BackingField: 84
-    <KillsToNextLevel>k__BackingField: 180
-  - <Damage>k__BackingField: 65
-    <RPM>k__BackingField: 200
-    <Accuracy>k__BackingField: 87
-    <KillsToNextLevel>k__BackingField: 250
-  - <Damage>k__BackingField: 70
-    <RPM>k__BackingField: 200
-    <Accuracy>k__BackingField: 90
-    <KillsToNextLevel>k__BackingField: 0
+  <Gun>k__BackingField: {fileID: 2125692110082310825, guid: 9c77184ec64f0db4fa86bb4d996eb17d,
+    type: 3}
+  <DamageBase>k__BackingField: 50
+  <RPM>k__BackingField: 150
+  <Accuracy>k__BackingField: 80
+  <DamageBonusPerLevel>k__BackingField: 1

@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameModeInfinite : MonoBehaviour
+public class GameModeInfinite : GameModeBase
 {
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        PanelMenu.OnInfiniteClicked += delegate
+        {
+            StartGame();
+        };
     }
 }

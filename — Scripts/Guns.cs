@@ -6,44 +6,77 @@ using System;
 
 public class Guns : MonoBehaviour
 {
-    public const int COUNT_LEVELS = 5;
-    [Title("Levels")]
-    [field: SerializeField, TableList(HideAddButton = true, HideRemoveButton = true)]
-    public List<GunLevelVisuals> ListGunLevelVisuals { get; private set; } = new List<GunLevelVisuals>(COUNT_LEVELS)
+    [SerializeField] GunStatus gunDefault;
+    public static GunStatus GunDefault
     {
-        new GunLevelVisuals(),
-        new GunLevelVisuals(),
-        new GunLevelVisuals(),
-        new GunLevelVisuals(),
-        new GunLevelVisuals()
-    };
-    [field: SerializeField, Range(1, COUNT_LEVELS)] public int LevelGiveLaserSight { get; private set; } = 1;
-    [field: SerializeField, Range(1, COUNT_LEVELS)] public int LevelGiveSilencer { get; private set; } = 2;
-    [Title("Guns")]
-    [SerializeField] GunInfo gunDefault;
-    [SerializeField] List<GunInfo> listGunsInfo;
-
-    public static Action<GunInfo> OnGunEquipped;
+        get
+        {
+            return FindObjectOfType<Guns>().gunDefault;
+        }
+    }
+    public static GunStatus GunEquipped
+    {
+        get
+        {
+            foreach (var gun in ListGuns)
+            {
+                if (gun.IsEquipped)
+                {
+                    return gun;
+                }
+            }
+            return GunDefault;
+        }
+        set
+        {
+            foreach (var gun in ListGuns)
+            {
+                if (gun.Profile != value.Profile)
+                {
+                    gun.IsEquipped = false;
+                }
+                if (gun.Profile == value.Profile)
+                {
+                    gun.IsEquipped = true;
+                    OnGunEquipped?.Invoke(value);
+                }
+            }
+        }
+    }
+    [SerializeField] List<GunStatus> listGuns;
+    public static List<GunStatus> ListGuns
+    {
+        get
+        {
+            return FindObjectOfType<Guns>().listGuns;
+        }
+        set
+        {
+            FindObjectOfType<Guns>().listGuns = value;
+        }
+    }
+    public static Action<GunStatus> OnGunEquipped;
 
     void Awake()
     {
-            
+        SaveSystem.OnSaveDoesNotExist += delegate
+        {
+            GunEquipped = GunDefault;
+        };
+        SaveSystem.OnSaveLoaded += delegate (SaveSystem.SaveData save)
+        {
+            ListGuns = save.ListGuns;
+            GunEquipped = save.GunEquipped;
+        };
     }
 
 }
 
 [Serializable]
-public class GunInfo
+public class GunStatus
 {
-    [field: SerializeField, Range(1, Guns.COUNT_LEVELS), EnableIf(nameof(IsBought))] public int Level = 1; 
     [field: SerializeField] public bool IsBought = false;
+    [field: SerializeField, ReadOnly] public int LevelCurrent = 1;
     [field: SerializeField, ReadOnly] public bool IsEquipped = false;
-    [field: SerializeField, Required, InlineEditor] public GunProfileBase Profile { get; private set; }
-}
-
-[Serializable]
-public class GunLevelVisuals
-{
-    [field: SerializeField, Required, InlineEditor] public Translation Name { get; private set; }
-    [field: SerializeField] public Color ColorRarity { get; private set; }
+    [field: SerializeField, Required, InlineEditor] public GunProfile Profile { get; private set; }
 }

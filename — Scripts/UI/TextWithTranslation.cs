@@ -12,7 +12,14 @@ public class TextWithTranslation : MonoBehaviour
     void Awake()
     {
         Language.OnLanguageChanged += SetText;
-        SetText(Language.LanguageCurrent);
+        if (translation != null)
+        {
+            SetText(Language.LanguageCurrent);
+        }
+        if (translation == null)
+        {
+            Debug.LogWarning(gameObject + "is missing Translation");
+        }
     }
 
     void OnDestroy()
@@ -25,7 +32,7 @@ public class TextWithTranslation : MonoBehaviour
         GetComponent<TextMeshProUGUI>().text = translation.Text;
     }
 
-    public void SetTranslation(Translation translation)
+    public void SetText(Translation translation)
     {
         this.translation = translation;
         SetText(Language.LanguageCurrent);
@@ -34,6 +41,11 @@ public class TextWithTranslation : MonoBehaviour
     [Button("Update Text")]
     void UpdateTextEditor()
     {
+        if (translation == null)
+        {
+            GetComponent<TextMeshProUGUI>().text = "---";
+            return;
+        }
         GetComponent<TextMeshProUGUI>().text = translation.Text;
     }
 }

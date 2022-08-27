@@ -8,27 +8,30 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     [SerializeField, Required] RectTransform holderPanels;
-    [SerializeField, Required, AssetsOnly] PanelBase panelMenu, panelMainBottom, panelSettings;
+    [SerializeField, Required, AssetsOnly] PanelBase panelMenu, panelDockBottom, panelSettings,
+        panelSelectLevel;
 
     void Awake()
     {
         OpenPanel(panelMenu);
-        OpenPanel(panelMainBottom);
+        OpenPanel(panelDockBottom);
 
-        PanelBase.OnOpened += delegate (PanelBase thisPanel)
+        PanelBase.OnClosed += delegate (PanelBase panelClosed)
         {
-            
-        };
-        PanelBase.OnClosed += delegate (PanelBase thisPanel)
-        {
-            if (thisPanel is PanelSettings)
+            if (panelClosed is PanelSettings
+            || panelClosed is PanelSelectLevel)
             {
                 OpenPanel(panelMenu);
+                OpenPanel(panelDockBottom);
             };
         };
         PanelMenu.OnSettingsClicked += delegate
         {
             OpenPanel(panelSettings);
+        };
+        PanelMenu.OnLevelsClicked += delegate
+        {
+            OpenPanel(panelSelectLevel);
         };
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TriInspector;
 using System;
 
-public class PanelDockBottom : PanelBase
+public class PanelDockBottom : PanelBase, ITemporarySubscriber
 {
     [SerializeField, Required] ColorCustom colorBlue, colorWhite;
     [SerializeField] TabGroup tabGroupMainButtons;
@@ -32,10 +32,33 @@ public class PanelDockBottom : PanelBase
             OnCharacterClicked?.Invoke();
             tabGroupMainButtons.DisplayButtonSelected(buttonCharacter.GetComponent<TabGroupButton>());
         });
-        SaveSystem.OnAppStarted += delegate
+
+        Subscribe();
+
+        tabGroupMainButtons.DisplayButtonSelected(buttonMenu.GetComponent<TabGroupButton>());
+    }
+
+    void OnDestroy()
+    {
+        Unsubscribe();
+    }
+
+    public void Subscribe()
+    {
+        OnOpened += ReactionOnOpened;
+    }
+
+    public void Unsubscribe()
+    {
+        OnOpened -= ReactionOnOpened;
+    }
+
+    void ReactionOnOpened(PanelBase panelOpened)
+    {
+        if (panelOpened is PanelSettings
+            || panelOpened is PanelSelectLevel)
         {
-            tabGroupMainButtons.DisplayButtonSelected(buttonMenu.GetComponent<TabGroupButton>());
-        };
-        
+            Close();
+        }
     }
 }
